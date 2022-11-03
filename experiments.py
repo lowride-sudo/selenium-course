@@ -5,14 +5,16 @@ import time
 try: 
     link = "http://suninjuly.github.io/registration2.html"
     browser = webdriver.Chrome()
+    browser.implicitly_wait(5)
+
     browser.get(link)
 
     # Ваш код, который заполняет обязательные поля
-    input1 = browser.find_element(By.TAG_NAME , "input")
+    input1 = browser.find_element(By.CSS_SELECTOR, ".form-control.first")
     input1.send_keys("q")
-    input2 = browser.find_element(By.CLASS_NAME , "form-control.second:required")
+    input2 = browser.find_element(By.CSS_SELECTOR, ".form-control.third")
     input2.send_keys("w")
-    input3 = browser.find_element(By.CLASS_NAME , "form-control.third")
+    input3 = browser.find_element(By.CSS_SELECTOR, ".second_block .form-control.first")
     input3.send_keys("e")    
 
     # Отправляем заполненную форму
@@ -42,4 +44,4 @@ finally:
 
 
 
-browser.execute_script('arguments[0].style.visibility = \'hidden\'', footer)
+# browser.execute_script('arguments[0].style.visibility = \'hidden\'', footer)
